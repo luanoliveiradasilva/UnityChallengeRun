@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Prototype_3.Scripts
@@ -32,13 +30,11 @@ namespace Assets.Prototype_3.Scripts
             rigidBody = GetComponent<Rigidbody>();
             playerAnimation = GetComponent<Animator>();
             audioSource = GetComponent<AudioSource>();
-
             Physics.gravity *= gravityModifier;
         }
 
         private void Update()
         {
-
             if (!gameOver && !final)
             {
                 transform.Translate(playerVelocity * Time.deltaTime * Vector3.right, 0);
@@ -65,8 +61,6 @@ namespace Assets.Prototype_3.Scripts
             else if (collision.gameObject.CompareTag("Obstacle"))
             {
                 gameOver = true;
-                Debug.Log("Game Over");
-
                 transform.Translate(new Vector3(0, 0, 0), 0);
                 playerAnimation.SetBool("Death_b", true);
                 playerAnimation.SetInteger("DeathType_int", 1);

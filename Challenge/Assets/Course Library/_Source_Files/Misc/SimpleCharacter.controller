@@ -7278,7 +7278,7 @@ AnimatorState:
 --- !u!1102 &110264428
 AnimatorState:
   serializedVersion: 6
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8318,7 +8318,7 @@ AnimatorStateMachine:
     m_Position: {x: 336, y: 72, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110267698}
-    m_Position: {x: -396, y: 276, z: 0}
+    m_Position: {x: -400, y: 280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110279209}
     m_Position: {x: -84, y: 420, z: 0}

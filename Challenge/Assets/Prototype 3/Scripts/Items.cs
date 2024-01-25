@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 public class Items : MonoBehaviour
@@ -15,10 +16,14 @@ public class Items : MonoBehaviour
     [SerializeField] private AudioClip coinSound;
     private Vector3 upPos;
     private Vector3 downPos;
+    private ItemManager itemManager;
+
+    public ParticleSystem particleSystem;
 
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        itemManager = FindObjectOfType<ItemManager>();
     }
 
     private void Start()
@@ -47,14 +52,18 @@ public class Items : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             audioSource.PlayOneShot(coinSound, 1.0f);
+            
+            particleSystem.Play();
+
+            itemManager.GetCoins();
+
             StartCoroutine(nameof(WaitSoundAnimation));
         }
-
     }
 
     IEnumerator WaitSoundAnimation()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
 }
